@@ -14,6 +14,9 @@ router.get("/", async (req, res) => {
     }
 });
 
+
+
+
 // para mostrar los nuevos elementos del pantry
 
 router.get("/new", (req, res) => {
