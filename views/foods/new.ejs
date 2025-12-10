@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Foods</title>
+</head>
+<body>
+    <form action="/users/<%= userId %>/foods" method="POST">
+    <h1>Add new food to the pantry</h1>
+
+<form action="/users/<%= userId %>/foods" method="POST">
+  <div>
+    <label for="name">Name of the food</label>
+    <input 
+      type="text" 
+      id="name" 
+      name="name" 
+      required
+    />
+  </div>
+
+  <button type="submit">Save</button>
+</form>
+
+<br />
+
+<a href="/users/<%= userId %>/foods">Volver a la despensa</a>
+
+    
+</body>
+</html>
