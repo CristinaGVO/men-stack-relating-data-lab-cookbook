@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Food</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <h1>Edit Food</h1>
+
+    <form
+      action="/users/<%= user._id %>/foods/<%= food._id %>?_method=PUT"
+      method="POST"
+    >
+      <div>
+        <label for="name">Name of food:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value="<%= food.name %>"
+          required
+        />
+      </div>
+
+      <button type="submit">Save changes</button>
+    </form>
+
+    <br />
+    <a href="/users/<%= user._id %>/foods">Back to the Pantry</a>
+  </body>
+</html>

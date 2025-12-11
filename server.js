@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const session = require('express-session');
+const usersController = require('./controllers/users.js');
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 const authController = require('./controllers/auth.js');
@@ -28,15 +29,14 @@ app.use(
   })
 );
 
+
 app.use(passUserToView);
-
-
 
 app.get('/', (req, res) => {
   // Check if the user is signed in
   if (req.session.user) {
     // Redirect signed-in users to their applications index
-    res.redirect(`/users/${req.session.user._id}/applications`);
+    res.redirect(`/users/${req.session.user._id}/foods`);
   } else {
     // Show the homepage for users who are not signed in
     res.render('index.ejs');
@@ -48,8 +48,11 @@ app.get('/', (req, res) => {
 app.use('/auth', authController);
 app.use(isSignedIn);
 app.use('/users/:userId/foods', foodsController);
+app.use('/users', usersController);
+
 
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
 });
+
