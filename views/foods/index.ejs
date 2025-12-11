@@ -1,41 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Pantry</title>
-  </head>
-  <body>
+</head>
+<body>
     <%- include('../partials/_navbar.ejs') %>
-
-    <h1>Your Pantry</h1>
-
-    <a href="/users/<%= user._id %>/foods/new">Add Food</a>
-
-    <% if (foods && foods.length > 0) { %>
-      <ul>
-        <% foods.forEach((food) => { %>
-          <li>
-            <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit">
-                Edit
-              </a>
-            <%= food.name %>
-            <form 
-            action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE" 
-            method="POST"
-            style="display:inline"
-          >
-            <button type="submit">Delete</button>
-            
-              
-          </form>
-          </li>
-        <% }) %>
-      </ul>
-    <% } else { %>
-      <p>There are no items in this pantry</p>
-    </p>
-    <% } %>
-
-  </body>
+        <h1>Your Pantry</h1>
+        <a href="/users/<%= user._id %>/foods/new">Add Food</a>
+        <% if (foods && foods.length> 0) { %>
+            <ul>
+                <% foods.forEach((food)=> { %>
+                    <li>
+                        <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit">
+                            Edit
+                        </a>
+                        <%= food.name %>
+                            <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE" method="POST"
+                                style="display:inline">
+                                <button type="submit">Delete</button>
+                            </form>
+                    </li>
+                    <% }) %>
+            </ul>
+            <% } else { %>
+                <p>There are no items in this pantry</p>
+                </p>
+                <% } %>
+</body>
 </html>

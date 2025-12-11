@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Foods</title>
 </head>
-
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <h1>Add new food to the pantry</h1>
-  
+    <h1>Add new food to the pantry</h1>
     <form action="/users/<%= user._id %>/foods" method="POST">
-
       <div>
         <label for="name">Name of food:</label>
-        <input type="text" name="name" id="name" required/>
-
+        <input type="text" name="name" id="name" required />
       </div>
-
       <button type="submit">Save</button>
     </form>
-
     <br />
     <a href="/users/<%= user._id %>/foods">Back to the Pantry</a>
 </body>
-
 </html>
